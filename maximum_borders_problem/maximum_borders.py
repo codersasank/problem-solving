@@ -86,12 +86,11 @@ def calc_maximum_border(array, n, m, mode):
                     
 
 num_of_test_cases = int(input())
-n, m = [int(i) for i in input().split()]
 
 
 for i in range(num_of_test_cases):
     array = []
-
+    n, m = [int(i) for i in input().split()]
     for j in range(n):
         row = input()
         array.append(row)
