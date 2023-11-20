@@ -27,3 +27,4 @@ class Solution:
         if not stack1 and not stack2:
             return True
         else:
+            return False
