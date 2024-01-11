@@ -16,12 +16,13 @@ class Solution {
             }
             stack.push(S.charAt(idx)-'0'); idx += 1;
         }
+        int size = stack.size();
+        for(i=idx; i<n; i++)
+            stack.push(S.charAt(i)-'0');
         StringBuilder ret = new StringBuilder();
         while (!stack.isEmpty())
             ret.append(stack.pop());
-        String retStr = ret.reverse().toString();
-        retStr += S.substring(i);
-        retStr = retStr.substring(0,n-K);
+        String retStr = ret.reverse().toString().substring(0,n-K);
         for (i=0; i<n-K; i++)
             if (retStr.charAt(i)!='0') break;
         if (i==n-K) return "0";
