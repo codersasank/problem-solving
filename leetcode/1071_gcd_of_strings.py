@@ -1,24 +1,13 @@
 class Solution:
-    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
-        m = len(flowerbed)
-        possible = 0
-        if n==0:
-            return True
-        if m==1:
-            if flowerbed[0]==0 and n<=1:
-                return True
-            else:
-                return False
-        if flowerbed[0]==0 and flowerbed[1]==0:
-            flowerbed[0] = 1
-            possible += 1
-        for i in range(1,m-1):
-            if flowerbed[i]==0 and flowerbed[i-1]==0 and flowerbed[i+1]==0:
-                flowerbed[i] = 1
-                possible += 1
-        if flowerbed[m-1]==0 and flowerbed[m-2]==0:
-            possible += 1
-        if possible >= n:
-            return True
-        else:
-            return False
+    def gcdOfStrings(self, str1: str, str2: str) -> str:
+        n1 = len(str1)
+        n2 = len(str2)
+        for i in range( min(n1, n2), 0, -1):
+            if n1%i == 0 and n2%i == 0:
+                prefix1 = str1[:i]
+                prefix2 = str2[:i]
+                if prefix1 != prefix2:
+                    continue
+                if (prefix1 * (n1//i) == str1) and (prefix2 * (n2//i) == str2):
+                    return prefix1
+        return ""
