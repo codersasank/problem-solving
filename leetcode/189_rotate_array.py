@@ -16,10 +16,7 @@ class Solution:
         swaps = 0
         while swaps < n-1:
             nums[left], nums[right] = nums[right], nums[left]
-            if left != right:
-                swaps += 2
-            else:
-                swaps += 1
+            swaps += 2
             left = (left - 1)%n
             right = (right + 1)%n
         
